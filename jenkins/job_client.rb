@@ -113,7 +113,7 @@ module Jenkins
           puts 'DDL validation with SUCCESS status!'
       elsif timeout_countdown == 0
           fail!("JOB FOLLOW TIMED OUT (After #{job_timeout} seconds)")
-      else
+      elsif @fetch_logs
         puts "DDL validation with #{build_result} status."
         begin
             log_response = perform_request(job_log_url, :get)
@@ -122,9 +122,9 @@ module Jenkins
             puts 'Couldn\'t retrieve log messages.'
         end
         exit(1)
-      # else
-      #   puts 'DDL validation with FAILURE status!'
-      #   exit(1)
+      else
+        puts 'DDL validation with FAILURE status!'
+        exit(1)
       end
     end
 
