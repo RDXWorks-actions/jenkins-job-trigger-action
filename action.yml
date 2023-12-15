@@ -21,6 +21,10 @@ inputs:
     description: 'Jenkins job timeout period. Default 30 seconds'
     required: false
     default: '30'
+  fetch_logs:
+    description: 'Fetch logs in case of failure job.'
+    required: false
+    default: 'true'
   proxy:
     required: false
     description: 'Proxy url, which includes username and password'
