@@ -113,7 +113,7 @@ module Jenkins
           puts 'DDL validation with SUCCESS status!'
       elsif timeout_countdown == 0
           fail!("JOB FOLLOW TIMED OUT (After #{job_timeout} seconds)")
-      elsif @fetch_logs
+      elsif fetch_logs == "true"
         puts "DDL validation with #{build_result} status."
         begin
             log_response = perform_request(job_log_url, :get)
