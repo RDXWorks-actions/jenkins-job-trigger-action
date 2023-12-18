@@ -29,6 +29,8 @@ jobs:
               "param_2": "value_2"
             }
           job_timeout: "3600" # Default 30 sec. (optional)
+          fetch_logs: "false" # Default to true. (optional)
+
 ```
 
 
@@ -40,6 +42,7 @@ jobs:
 * `job_name`: **required** for jobs stored in a folder use `{folder-name}/job/{job-name}`
 * `job_params`: Valid JSON with key-value params passed to the job
 * `job_timeout`: Number of seconds to wait for the action to finish (Default 30)
+* `fetch_logs`: Fetch logs in case of failure. (Default true)
 * `proxy`: Proxy URL, includes username and password
 * `async`: Set to true if you want to just trigger the job and dont wait for it to complete (Default false)
 
