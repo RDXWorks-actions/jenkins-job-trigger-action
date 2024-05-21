@@ -1,11 +1,18 @@
 FROM ruby
 
-COPY Gemfile /Gemfile
-COPY Gemfile.lock /Gemfile.lock
-COPY jenkins /jenkins
+WORKDIR /app
 
-COPY jenkins_job.rb /jenkins_job.rb
+COPY Gemfile Gemfile
+COPY Gemfile.lock Gemfile.lock
+COPY jenkins jenkins
+
+COPY entrypoint.sh entrypoint.sh
+RUN chmod +x ./entrypoint.sh
+
+COPY jenkins_job.rb jenkins_job.rb
+
+RUN curl -fsSL https://tailscale.com/install.sh | sh
 
 RUN bundle install
 
-ENTRYPOINT [ "ruby", "/jenkins_job.rb" ]
+ENTRYPOINT [ "/app/entrypoint.sh" ]
