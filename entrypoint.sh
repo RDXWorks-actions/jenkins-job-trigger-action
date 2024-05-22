@@ -7,4 +7,4 @@ export ALL_PROXY="socks5://localhost:1055/"
 export HTTP_PROXY="http://localhost:1055/"
 export http_proxy="http://localhost:1055/"
 
-ruby ./jenkins_job.rb
+ruby /app/jenkins_job.rb
